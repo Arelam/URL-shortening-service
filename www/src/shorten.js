@@ -1,3 +1,4 @@
+var entries = [];
 window.addEventListener('DOMContentLoaded', (event) => {
 	_setup();
 });
@@ -9,7 +10,7 @@ function _setup() {
 function formSubmit(event) {
 	event.preventDefault(); // Prevent form submission
 	let text = event.target[0].value;
-	if(checkURLEntries(text) && checkURLEntryValid(text)) {
+	if(checkURLEntriesDuplicate(text) && checkURLEntryValid(text)) {
 		addEntry(text);
 	}
 }
@@ -22,12 +23,17 @@ function checkURLEntryValid(text) {
 	return text.match(ex);
 }
 
-function checkURLEntries(url) {return true;}
+function checkURLEntriesDuplicate(url) {
+	//let entryTable = Array.from(document.getElementById('table-entries').children);
+	//console.log(entryTable.some(entryTable => entryTable.children[0] === url));
+	return !entries.some(entries => entries.url === url);
+}
 
 function addEntry(url) {
 	let shortURL = generateShortURL(4);
 	let format = formatEntry(url, shortURL);
 	document.getElementById('table-entries').appendChild(format);
+	entries.push({url, shortURL});
 }
 
 function formatEntry(full, short) {
