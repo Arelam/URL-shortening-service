@@ -86,7 +86,7 @@ function formatEntry(full, short) {
 	let c3 = document.createElement('td');
 	c3.setAttribute('datetime', time.toISOString());
 	// Date format YYYY-MM-DD HH:MM:SS
-	let month = time.getMonth().toString().padStart(2, 0);
+	let month = (time.getMonth()+1).toString().padStart(2, 0); //getMonth 0-11
 	let date = time.getDate().toString().padStart(2, 0);
 	let hours = time.getHours().toString().padStart(2, 0);
 	let minutes = time.getMinutes().toString().padStart(2, 0);
