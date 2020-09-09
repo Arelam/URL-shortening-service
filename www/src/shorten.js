@@ -26,6 +26,8 @@ function formSubmit(event) {
 	let text = event.target[0].value;
 	if(checkURLEntriesDuplicate(text) && checkURLEntryValid(text)) {
 		addEntry(text);
+		event.target.reset();
+		if(preValidate) document.getElementById('entry-button').disabled = true;
 	} else {
 		alert('URL already shortened.');
 	}
