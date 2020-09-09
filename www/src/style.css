@@ -7,6 +7,10 @@ body {
 	margin: 0 auto;
 }
 
+h1, form#entry {
+	text-align: center;
+}
+
 table {
 	width: 100%;
 	border-collapse: collapse;
