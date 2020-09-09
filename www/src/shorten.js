@@ -26,11 +26,17 @@ function checkURLEntryValid(text) {
 function checkURLEntriesDuplicate(url) {
 	//let entryTable = Array.from(document.getElementById('table-entries').children);
 	//console.log(entryTable.some(entryTable => entryTable.children[0] === url));
+
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 	return !entries.some(entries => entries.url === url);
 }
 
 function addEntry(url) {
-	let shortURL = generateShortURL(4);
+	let shortURL;
+	do {
+		shortURL = generateShortURL(4);
+	} while (entries.some(entries => entries.shortURL === shortURL));
+	
 	let format = formatEntry(url, shortURL);
 	document.getElementById('table-entries').appendChild(format);
 	entries.push({url, shortURL});
