@@ -1,0 +1,18 @@
+html {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	width: 90%;
+	margin: 0 auto;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
