@@ -1,3 +1,4 @@
+const preValidate = true;
 var entries = [];
 window.addEventListener('DOMContentLoaded', (event) => {
 	_setup();
@@ -5,6 +6,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 function _setup() {
 	document.getElementById('entry').addEventListener('submit', formSubmit);
+	if(preValidate)	{
+		document.getElementById('entry-text').addEventListener('input', checkEntry);
+		document.getElementById('entry-button').disabled = true;
+	}
+}
+
+function checkEntry(event) {
+	let input = event.target.value;
+	if(checkURLEntryValid(input)) {
+		document.getElementById('entry-button').disabled = false;
+	} else {
+		document.getElementById('entry-button').disabled = true;
+	}
 }
 
 function formSubmit(event) {
@@ -12,6 +26,8 @@ function formSubmit(event) {
 	let text = event.target[0].value;
 	if(checkURLEntriesDuplicate(text) && checkURLEntryValid(text)) {
 		addEntry(text);
+	} else {
+		alert('URL already shortened.');
 	}
 }
 
