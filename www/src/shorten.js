@@ -33,6 +33,7 @@ function formSubmit(event) {
 		addEntry(text);
 		event.target.reset();
 		if(preValidate) document.getElementById('entry-button').disabled = true;
+		document.getElementById('warning').classList.add('hide');
 	} else {
 		alert('URL already shortened.');
 	}
