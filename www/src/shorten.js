@@ -23,6 +23,11 @@ function checkURLEntryValid(text) {
 	return text.match(ex);
 }
 
+function isURLSecure(url) {
+	let ex = /^https:\/\//;
+	return url.match(ex);
+}
+
 function checkURLEntriesDuplicate(url) {
 	//let entryTable = Array.from(document.getElementById('table-entries').children);
 	//console.log(entryTable.some(entryTable => entryTable.children[0] === url));
@@ -55,7 +60,7 @@ function formatEntry(full, short) {
 	// Date
 	let time = new Date(Date.now());
 	let c3 = document.createElement('td');
-	c3.setAttribute('time', time.toISOString());
+	c3.setAttribute('datetime', time.toISOString());
 	// Date format YYYY-MM-DD HH:MM:SS
 	let month = time.getMonth().toString().padStart(2, 0);
 	let date = time.getDate().toString().padStart(2, 0);
