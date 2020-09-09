@@ -31,7 +31,18 @@ function addEntry(url) {
 }
 
 function formatEntry(full, short) {
-	//let 
+	let time = new Date(Date.now()).toISOString(); // TODO fix format
+	let tr = document.createElement('tr');
+	let c1 = document.createElement('td');
+	c1.innerText = full;
+	let c2 = document.createElement('td');
+	c2.innerText = short;
+	let c3 = document.createElement('td');
+	c3.innerText = time;
+	tr.appendChild(c1);
+	tr.appendChild(c2);
+	tr.appendChild(c3);
+	return tr;
 }
 
 function generateShortURL(stringLength) {
