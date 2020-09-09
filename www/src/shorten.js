@@ -11,9 +11,7 @@ function formSubmit(event) {
 	let text = event.target[0].value;
 	if(checkURLEntries(text) && checkURLEntryValid(text)) {
 		addEntry(text);
-		console.log('valid');
 	}
-	console.log('test');
 }
 
 /** Check if entry is a valid URL
@@ -37,5 +35,13 @@ function formatEntry(full, short) {
 }
 
 function generateShortURL(stringLength) {
-	
+	let random = '';
+	for(let i=0;i<stringLength;i++) {
+		// https://asecuritysite.com/coding/asc2
+		// 65(A)-122(z)=57 possible
+		let s = Math.floor(Math.random()*57);
+		random += String.fromCharCode((s+65));
+		console.log(s+65);
+	}
+	return random;
 }
