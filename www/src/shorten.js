@@ -36,7 +36,8 @@ function formatEntry(full, short) {
 	let c1 = document.createElement('td');
 	c1.innerText = full;
 	let c2 = document.createElement('td');
-	c2.innerText = short;
+	c2.setAttribute('data-short', short);
+	c2.innerText = window.location.origin+'/'+short; // TODO href and select everything until last folder
 	let c3 = document.createElement('td');
 	c3.innerText = time;
 	tr.appendChild(c1);
