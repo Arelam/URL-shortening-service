@@ -16,6 +16,11 @@ function checkEntry(event) {
 	let input = event.target.value;
 	if(checkURLEntryValid(input)) {
 		document.getElementById('entry-button').disabled = false;
+		if(isURLSecure(input)) {
+			document.getElementById('warning').classList.add('hide');
+		} else {
+			document.getElementById('warning').classList.remove('hide');
+		}
 	} else {
 		document.getElementById('entry-button').disabled = true;
 	}

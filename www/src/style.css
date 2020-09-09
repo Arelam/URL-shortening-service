@@ -20,3 +20,11 @@ table, th, td {
 	border: 1px solid black;
 }
 
+#warning {
+	color:#db2720;
+	font-weight: bold;
+}
+
+.hide {
+	visibility: hidden;
+}
