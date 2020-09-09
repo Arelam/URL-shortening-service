@@ -55,11 +55,14 @@ function formatEntry(full, short) {
 	// Date
 	let time = new Date(Date.now());
 	let c3 = document.createElement('td');
-	c3.setAttribute('time', time.toISOString())
+	c3.setAttribute('time', time.toISOString());
+	// Date format YYYY-MM-DD HH:MM:SS
 	let month = time.getMonth().toString().padStart(2, 0);
 	let date = time.getDate().toString().padStart(2, 0);
-	c3.innerText = time.getFullYear()+'-'+month+'-'+date+' '
-		+time.getHours()+':'+time.getMinutes()+':'+time.getSeconds();
+	let hours = time.getHours().toString().padStart(2, 0);
+	let minutes = time.getMinutes().toString().padStart(2, 0);
+	let seconds = time.getSeconds().toString().padStart(2, 0);
+	c3.innerText = time.getFullYear()+'-'+month+'-'+date+' '+hours+':'+minutes+':'+seconds;
 
 	let tr = document.createElement('tr');
 	tr.appendChild(c1);
