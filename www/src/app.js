@@ -14,7 +14,7 @@ function _setup() {
 
 function preCheckEntry(event) {
 	let input = event.target.value;
-	if(checkURLEntryValid(input)) {
+	if(isURLEntryValid(input)) {
 		document.getElementById('entry-button').disabled = false;
 		if(isURLSecure(input)) {
 			document.getElementById('warning').classList.add('hide');
@@ -26,10 +26,18 @@ function preCheckEntry(event) {
 	}
 }
 
+function checkEntriesDuplicate(url) {
+	//let entryTable = Array.from(document.getElementById('table-entries').children);
+	//console.log(entryTable.some(entryTable => entryTable.children[0] === url));
+
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+	return !entries.some(entries => entries.url === url);
+}
+
 function formSubmit(event) {
 	event.preventDefault(); // Prevent form submission
 	let text = event.target[0].value;
-	if(checkURLEntriesDuplicate(text) && checkURLEntryValid(text)) {
+	if(checkEntriesDuplicate(text) && isURLEntryValid(text)) {
 		addEntry(text);
 		event.target.reset();
 		if(preValidate) document.getElementById('entry-button').disabled = true;
@@ -44,7 +52,7 @@ function addEntry(url) {
 	do {
 		shortURL = generateShortURL(4);
 	} while (entries.some(entries => entries.shortURL === shortURL));
-	
+
 	let date = new Date(Date.now());
 	let format = formatEntry(url, shortURL, date);
 	document.getElementById('table-entries').appendChild(format);

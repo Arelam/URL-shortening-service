@@ -1,7 +1,7 @@
 /** Check if entry is a valid URL
  * HTTP and HTTPS allowed.
  */
-function checkURLEntryValid(text) {
+function isURLEntryValid(text) {
 	let ex = /^https?:\/\//;
 	return text.match(ex);
 }
@@ -9,14 +9,6 @@ function checkURLEntryValid(text) {
 function isURLSecure(url) {
 	let ex = /^https:\/\//;
 	return url.match(ex);
-}
-
-function checkURLEntriesDuplicate(url) {
-	//let entryTable = Array.from(document.getElementById('table-entries').children);
-	//console.log(entryTable.some(entryTable => entryTable.children[0] === url));
-
-	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
-	return !entries.some(entries => entries.url === url);
 }
 
 function generateShortURL(stringLength) {
