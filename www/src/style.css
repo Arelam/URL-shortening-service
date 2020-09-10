@@ -29,9 +29,13 @@ table, th, td {
 	visibility: hidden;
 }
 
-#entry input, #entry button {
-	display: block;
+form#entry {
 	width: 24em;
+	margin: 1em auto;
+}
+
+#entry input, #entry button {
+	width: 100%;
 	margin: .5em auto;
 }
 
