@@ -44,13 +44,14 @@ function addEntry(url) {
 	do {
 		shortURL = generateShortURL(4);
 	} while (entries.some(entries => entries.shortURL === shortURL));
-
-	let format = formatEntry(url, shortURL);
+	
+	let date = new Date(Date.now());
+	let format = formatEntry(url, shortURL, date);
 	document.getElementById('table-entries').appendChild(format);
 	entries.push({url, shortURL});
 }
 
-function formatEntry(full, short) {
+function formatEntry(full, short, time) {
 	// Full URL
 	let c1 = document.createElement('td');
 	c1.innerText = full;
@@ -61,7 +62,6 @@ function formatEntry(full, short) {
 	c2.innerText = window.location.origin+'/'+short; // TODO href - don't assume we are in root web folder
 	
 	// Date
-	let time = new Date(Date.now());
 	let c3 = document.createElement('td');
 	c3.setAttribute('datetime', time.toISOString());
 	// Date format YYYY-MM-DD HH:MM:SS
