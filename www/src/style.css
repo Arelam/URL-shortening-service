@@ -53,3 +53,7 @@ form#entry {
 #entry-button:hover, #entry-button:active {
     background-color: #143c88;
 }
+
+#entry-button:disabled {
+	background-color: #b3b8bd;
+}
