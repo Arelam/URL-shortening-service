@@ -28,3 +28,18 @@ table, th, td {
 .hide {
 	visibility: hidden;
 }
+
+#entry-button {
+	cursor: pointer;
+	border: .2em;
+	background-color: #1b64c2;
+	color: #f9f8f8;
+	font-size: 1em;
+	font-weight: bold;
+	border-radius: .2em;
+	padding: .2em .8em;
+}
+
+#entry-button:hover, #entry-button:active {
+    background-color: #143c88;
+}
