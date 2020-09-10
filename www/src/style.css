@@ -56,4 +56,5 @@ form#entry {
 
 #entry-button:disabled {
 	background-color: #b3b8bd;
+	cursor: not-allowed;
 }
