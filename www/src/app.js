@@ -12,6 +12,11 @@ function _setup() {
 	}
 }
 
+/**
+ * Enables and disables button entry
+ * Hides and shows warning message
+ * @param {*} event 
+ */
 function preCheckEntry(event) {
 	let input = event.target.value;
 	if(isURLEntryValid(input)) {
@@ -26,6 +31,11 @@ function preCheckEntry(event) {
 	}
 }
 
+/**
+ * Check if URL is already shortened
+ * @param {string} url 
+ * @returns {boolean}
+ */
 function checkEntriesDuplicate(url) {
 	//let entryTable = Array.from(document.getElementById('table-entries').children);
 	//console.log(entryTable.some(entryTable => entryTable.children[0] === url));
@@ -34,6 +44,10 @@ function checkEntriesDuplicate(url) {
 	return !entries.some(entries => entries.url === url);
 }
 
+/**
+ * Handle form submission
+ * @param {*} event 
+ */
 function formSubmit(event) {
 	event.preventDefault(); // Prevent form submission
 	let text = event.target[0].value;
@@ -47,6 +61,10 @@ function formSubmit(event) {
 	}
 }
 
+/**
+ * Ensures short URL is unique before adding saving
+ * @param {string} url 
+ */
 function addEntry(url) {
 	let shortURL;
 	do {
@@ -59,6 +77,13 @@ function addEntry(url) {
 	entries.push({url, shortURL});
 }
 
+/**
+ * Handle HTML formatting of entry
+ * @param {string} full 
+ * @param {string} short 
+ * @param {Date} time 
+ * @returns {Document}
+ */
 function formatEntry(full, short, time) {
 	// Full URL
 	let c1 = document.createElement('td');
