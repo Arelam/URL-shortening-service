@@ -29,6 +29,12 @@ table, th, td {
 	visibility: hidden;
 }
 
+#entry input, #entry button {
+	display: block;
+	width: 24em;
+	margin: .5em auto;
+}
+
 #entry-button {
 	cursor: pointer;
 	border: .2em;
