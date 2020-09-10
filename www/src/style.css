@@ -1,3 +1,8 @@
+:root {
+	--light-blue-background: #9bc1fd75;
+	--light-grey-background: #d3d4d375;
+}
+
 html {
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -32,6 +37,10 @@ table, th, td {
 form#entry {
 	width: 24em;
 	margin: 1em auto;
+	padding: 1em;
+	background-color: var(--light-blue-background);
+	border: 1em solid var(--light-grey-background);
+	border-radius: 1em;
 }
 
 #entry input, #entry button {
