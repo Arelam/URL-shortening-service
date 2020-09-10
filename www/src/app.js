@@ -37,9 +37,6 @@ function preCheckEntry(event) {
  * @returns {boolean}
  */
 function checkEntriesDuplicate(url) {
-	//let entryTable = Array.from(document.getElementById('table-entries').children);
-	//console.log(entryTable.some(entryTable => entryTable.children[0] === url));
-
 	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 	return !entries.some(entries => entries.url === url);
 }
